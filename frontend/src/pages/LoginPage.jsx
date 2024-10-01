@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuthStore } from "../store/authUser";
 
 const LoginPage = () => {
 
-  const [email, setEmail] = useState("");
+	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-  // const { login, isLoggingIn } = useAuthStore();
-  const clickLogin = (e) => {
+	const { login, isLoggingIn } = useAuthStore();
+	const clickLogin = (e) => {
 		e.preventDefault();
-		// login({ email, password });
+		login({ email, password });
 	};
 
-  return (
+	return (
 		<div className='h-screen w-full hero-back'>
 			<header className='max-w-6xl mx-auto flex items-center justify-between p-4'>
 				<Link to={"/"}>
@@ -37,7 +38,6 @@ const LoginPage = () => {
 								onChange={(e) => setEmail(e.target.value)}
 							/>
 						</div>
-
 						<div>
 							<label htmlFor='password' className='text-sm font-medium text-gray-300 block'>
 								Password
@@ -51,15 +51,12 @@ const LoginPage = () => {
 								onChange={(e) => setPassword(e.target.value)}
 							/>
 						</div>
-
-						{/* <button
+						<button
 							className='w-full py-2 bg-red-600 text-white font-semibold rounded-md
-							hover:bg-red-700
-						'
-							disabled={isLoggingIn}
-						>
+							hover:bg-red-700'
+							disabled={isLoggingIn}>
 							{isLoggingIn ? "Loading..." : "Login"}
-						</button> */}
+						</button>
 					</form>
 					<div className='text-center text-gray-400'> Dont have an account?
 						<Link to={"/signup"} className='text-red-500 hover:underline'>

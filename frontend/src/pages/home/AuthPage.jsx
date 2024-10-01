@@ -1,13 +1,14 @@
 import { useState } from "react";
+import { ChevronRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom"
 
 const AuthPage = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
-	const handleFormSubmit = (e) => {
-		e.preventDefault();
-		navigate("/signup?email=" + email);
-	};
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        navigate("/signup?email=" + email);
+    };
 
     return (
         <div className='hero-back relative'>
@@ -33,7 +34,7 @@ const AuthPage = () => {
                     />
                     <button className='bg-red-600 text-xl lg:text-2xl px-2 lg:px-6 py-1 md:py-2 rounded flex justify-center items-center'>
                         Get Started
-                        {/* <ChevronRight className='size-8 md:size-10' /> */}
+                        <ChevronRight className='size-8 md:size-10' />
                     </button>
                 </form>
             </div>
@@ -41,7 +42,7 @@ const AuthPage = () => {
             <div className='h-2 w-full bg-[#232323]' aria-hidden='true' />
             <div className='py-10 bg-black text-white'>
                 <div className='flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 md:px-2'>
-               
+
                     <div className='flex-1 text-center md:text-left'>
                         <h2 className='text-4xl md:text-5xl font-extrabold mb-4'>Enjoy on your TV</h2>
                         <p className='text-lg md:text-xl'>
@@ -57,7 +58,7 @@ const AuthPage = () => {
                             muted
                             loop
                         >
-                            <source src='/hero-vid.m4v' type='video/mp4' />
+                            <source src='/assets/hero-vid.m4v' type='video/mp4' />
                         </video>
                     </div>
                 </div>
@@ -67,21 +68,20 @@ const AuthPage = () => {
 
             <div className='py-10 bg-black text-white'>
                 <div className='flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col-reverse px-4 md:px-2'>
-                  
+
                     <div className='flex-1 relative'>
                         <div className='relative'>
-                            <img src='/stranger-things-lg.png' alt='Stranger Things img' className='mt-4' />
+                            <img src='/assets/stranger-things-lg.png' alt='Stranger Things img' className='mt-4' />
 
                             <div
                                 className='flex items-center gap-2 absolute bottom-5 left-1/2 -translate-x-1/2 bg-black w-3/4 lg:w-1/2 h-24 border border-slate-500 rounded-md px-2'>
-                                <img src='/stranger-things-sm.png' alt='image' className='h-full' />
+                                <img src='/assets/stranger-things-sm.png' alt='image' className='h-full' />
                                 <div className=' flex justify-between items-center w-full'>
                                     <div className='flex flex-col gap-0'>
                                         <span className='text-md lg:text-lg font-bold'>Stranger Things</span>
-                                        <span className='text-sm text-blue-500'>Downloading...</span>
+                                        <span className='text-sm text-blue-500'>Downloading..</span>
                                     </div>
-
-                                    <img src='/download-icon.gif' alt='' className='h-12' />
+                                    <img src='/assets/download-icon.gif' alt='' className='h-12' />
                                 </div>
                             </div>
                         </div>
@@ -106,7 +106,7 @@ const AuthPage = () => {
                         </p>
                     </div>
                     <div className='flex-1 relative overflow-hidden'>
-                        <img src='/device-pile.png' alt='Device image' className='mt-4 z-20 relative' />
+                        <img src='/assets/device-pile.png' alt='Device image' className='mt-4 z-20 relative' />
                         <video
                             className='absolute top-2 left-1/2 -translate-x-1/2  h-4/6 z-10 max-w-[63%]'
                             playsInline
@@ -114,7 +114,7 @@ const AuthPage = () => {
                             muted
                             loop
                         >
-                            <source src='/video-devices.m4v' type='video/mp4' />
+                            <source src='/assets/video-devices.m4v' type='video/mp4' />
                         </video>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ const AuthPage = () => {
                     className='flex max-w-6xl mx-auto items-center justify-center flex-col-reverse md:flex-row
                      px-4 md:px-2'>
                     <div className='flex-1 relative'>
-                        <img src='/kids.png' alt='Enjoy on your TV' className='mt-4' />
+                        <img src='/assets/kids.png' alt='Enjoy on your TV' className='mt-4' />
                     </div>
                     <div className='flex-1 text-center md:text-left'>
                         <h2 className='text-4xl md:text-5xl font-extrabold mb-4'>Create profiles for kids</h2>

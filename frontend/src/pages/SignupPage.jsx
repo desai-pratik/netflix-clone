@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
+import { useAuthStore } from '../store/authUser';
 
 const SignupPage = () => {
   const { searchParams } = new URL(document.location);
@@ -8,11 +9,11 @@ const SignupPage = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState(emailValue || "");
   
-  // const { signup, isSigningUp } = useAuthStore();
+  const { signup, isSigningUp } = useAuthStore();
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    // signup({ email, username, password });
+    signup({ email, username, password });
   };
 
   return (
@@ -25,7 +26,6 @@ const SignupPage = () => {
       <div className='flex justify-center items-center mt-20 mx-3'>
         <div className='w-full max-w-md p-8 space-y-6 bg-black/80 rounded-lg shadow-md'>
           <h1 className='text-center text-white text-2xl font-bold mb-4'>Sign Up</h1>
-
           <form className='space-y-4' onSubmit={handleSignUp}>
             <div>
               <label htmlFor='email' className='text-sm font-medium text-gray-300 block'>
@@ -66,17 +66,14 @@ const SignupPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            {/* <button
+            <button
               className='w-full py-2 bg-red-600 text-white font-semibold rounded-md
-							hover:bg-red-700
-						'
-              disabled={isSigningUp}
-            >
+							hover:bg-red-700' disabled={isSigningUp}>
               {isSigningUp ? "Loading..." : "Sign Up"}
-            </button> */}
+            </button>
           </form>
           <div className='text-center text-gray-400'>
-            Already a member?{" "}
+            Already a member?
             <Link to={"/login"} className='text-red-500 hover:underline'>
               Sign in
             </Link>
