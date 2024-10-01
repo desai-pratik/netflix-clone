@@ -4,6 +4,7 @@ import HomePage from './pages/home/HomePage'
 import AuthPage from './pages/home/AuthPage'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
+import WatchPage from './pages/WatchPage'
 import { Toaster } from 'react-hot-toast'
 import { useAuthStore } from './store/authUser'
 import { Loader } from "lucide-react";
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={user ? <HomePage /> : <AuthPage />} />
         <Route path='/login' element={!user ? <LoginPage /> : <Navigate to={"/"} />} />
         <Route path='/signup' element={!user ? <SignupPage /> : <Navigate to={"/"} />} />
+        <Route path='/watch/:id' element={user ? <WatchPage /> : <Navigate to={"/login"} />} />
       </Routes>
       <Toaster />
     </>

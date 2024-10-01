@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useContentStore } from "../../store/content";
 import { MOVIE_CATEGORIES, ORIGINAL_IMG_BASE_URL, TV_CATEGORIES } from "../../utils/constant";
 import { Play, Info } from "lucide-react";
+import SliderContent from "../../components/SliderContent";
 
 const HomePage = () => {
 
@@ -77,11 +78,11 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* <div className='flex flex-col gap-10 bg-black py-10'>
+      <div className='flex flex-col gap-10 bg-black py-10'>
         {contentType === "movie"
-          ? MOVIE_CATEGORIES.map((category) => <MovieSlider key={category} category={category} />)
-          : TV_CATEGORIES.map((category) => <MovieSlider key={category} category={category} />)}
-      </div> */}
+          ? MOVIE_CATEGORIES.map((category) => <SliderContent key={category} category={category} />)
+          : TV_CATEGORIES.map((category) => <SliderContent key={category} category={category} />)}
+      </div>
     </>
   )
 }
